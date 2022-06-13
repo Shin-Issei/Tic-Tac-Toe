@@ -27,7 +27,6 @@ const makeNewGame = () => {
                 }
                 turnNumber++;
                 if(turnNumber > 3){
-                    if(space.textContent !== "")
                     checkWinner()
                 }
 
@@ -48,19 +47,19 @@ function checkWinner(){
         if(gameboard[0] === "____"){
             return;
         }
-        console.log("Winnar!~ 1");
+        declareWinner()
     }
     if (gameboard[3] === gameboard[4] && gameboard[3] === gameboard[5]){
         if(gameboard[3] === "____"){
             return;
         }
-        console.log("Winnar!~ 2");
+        declareWinner()
     }
     if (gameboard[6] === gameboard[7] && gameboard[6] === gameboard[8]){
         if(gameboard[6] === "____"){
             return;
         }
-       console.log("Winnar!~ 3");
+       declareWinner()
    }
    //Row Winners END
    //Column Winners START
@@ -70,21 +69,21 @@ function checkWinner(){
             return;
         }
 
-       console.log("Winnar!~ 4");
+       declareWinner()
    }
     if (gameboard[1] === gameboard[4] && gameboard[1] === gameboard[7]){
         if(gameboard[1] === "____"){
             return;
         }
 
-       console.log("Winnar!~ 5");
+       declareWinner()
    }
     if (gameboard[2] === gameboard[5] && gameboard[2] === gameboard[8]){
         if(gameboard[2] === "____"){
             return;
         }
 
-       console.log("Winnar!~ 6");
+        declareWinner()
    }
    
    //Column Winners END
@@ -96,18 +95,28 @@ function checkWinner(){
         return;
     }
 
-       console.log("Winnar!~ 7");
+    declareWinner()
    }
    if (gameboard[2] === gameboard[5] && gameboard[2] === gameboard[6]){
     if(gameboard[2] === "____"){
         return;
     }
-
-      console.log("Winnar!~ 8");
+    declareWinner()
+      
   }
 
 }
 
-
+function declareWinner(){
+    const winner = () =>{
+        if (turnNumber % 2 == 0){
+            console.log("Player 1 Wins!")
+        }
+        else{
+            console.log("Player 2 Wins!")
+        }
+    }
+    return winner();
+}
 
 
